@@ -11,11 +11,13 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var statePicker: UIPickerView!
-    
     @IBOutlet weak var statePickerBtn: UIButton!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var zipLabel: UILabel!
+    @IBOutlet weak var zipField: UITextField!
     
-    
-    let states = ["California", "Texas", "New York", "Washington", "Nebraska", "Florida", "Alaska", "Arkansas", "Alabama"]
+    let states = ["Alaska", "Alabama","Arkansas","American Samoa", "Arizona", "California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Guam","Hawaii","Iowa","Idaho","Illinois","Indiana","Kansas","Kentucky","Louisiana","Massachusetts","Maryland","Maine","Michigan","Minnesota","Missouri","Mississippi","Montana","North Carolina"," North Dakota","Nebraska","New Hampshire","New Jersey","New Mexico","Nevada","New York","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Virginia","Virgin Islands","Vermont","Washington","Wisconsin","West Virginia","Wyoming"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     @IBAction func stateBtnPressed(_ sender: Any) {
         statePicker.isHidden = false
-       
-        
+        cityLabel.isHidden = true
+        cityTextField.isHidden = true
+        zipLabel.isHidden = true
+        zipField.isHidden = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -50,6 +54,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     statePickerBtn.setTitle(states[row], for: UIControlState.normal)
         statePicker.isHidden = true
+        cityLabel.isHidden = false
+        cityTextField.isHidden = false
+        zipLabel.isHidden = false
+        zipField.isHidden = false
     }
     
 }
